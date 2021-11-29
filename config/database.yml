@@ -12,6 +12,11 @@ development:
   <<: *default
   database: devPortfolio_development
 
+test:
+  <<: *default
+  database: devPortfolio_test
+
+
 production:
   <<: *default
   database: devPortfolio_production
