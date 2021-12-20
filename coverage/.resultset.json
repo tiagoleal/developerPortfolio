@@ -1,0 +1,502 @@
+{
+  "Cucumber Features": {
+    "coverage": {
+      "/portfolio/features/factories/abouts.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/additional_informations.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/blocks.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/contacts.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/educations.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/experiences.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/hobbies.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/languages.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/portfolio_tags.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/portfolios.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          4,
+          4,
+          4,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/profiles.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/skills.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/socials.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/tags.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/factories/users.rb": {
+        "lines": [
+          1,
+          1,
+          4,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/portfolio/features/step_definitions/cucumber_works_steps.rb": {
+        "lines": [
+          1,
+          0,
+          null
+        ]
+      },
+      "/portfolio/features/step_definitions/portfolio_steps.rb": {
+        "lines": [
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          3,
+          3,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          3,
+          null
+        ]
+      },
+      "/portfolio/features/step_definitions/sign_in_steps.rb": {
+        "lines": [
+          1,
+          3,
+          3,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          3,
+          null,
+          null,
+          null,
+          1,
+          3,
+          3,
+          3,
+          3,
+          null
+        ]
+      },
+      "/portfolio/features/step_definitions/tag_steps.rb": {
+        "lines": [
+          1,
+          3,
+          12,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          3,
+          3,
+          3,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null
+        ]
+      },
+      "/portfolio/features/step_definitions/user_sign_in_steps.rb": {
+        "lines": [
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null
+        ]
+      },
+      "/portfolio/app/models/tag.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/portfolio/app/models/portfolio.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          3,
+          3,
+          null,
+          null,
+          1,
+          3,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/portfolio/app/models/portfolio_tag.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1640020415
+  }
+}

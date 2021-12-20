@@ -22,6 +22,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem "webpacker", "~> 3"
 gem 'pundit'
+gem 'brakeman'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -42,6 +43,7 @@ group :development, :test do
   gem 'ffaker'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "factory_bot_rails", "~> 4.0"
+  gem 'simplecov'
 end
 
 group :test do
