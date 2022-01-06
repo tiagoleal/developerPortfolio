@@ -1,7 +1,5 @@
-class PortfolioResourcePolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
+class PortfolioResourcePolicy < PortfolioPolicy
+  def index?
+    permitted_action?
   end
 end
