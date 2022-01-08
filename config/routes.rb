@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :languages, only: [:index, :create, :destroy]
     resources :abouts, only: [:index, :update]
     resources :socials, only: [:index, :create, :destroy]
+    resources :abouts, only: [:index, :update]
   end
  
   resources :tags, only: :index
