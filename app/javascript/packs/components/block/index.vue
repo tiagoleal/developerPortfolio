@@ -7,25 +7,29 @@
         </div>
  
         <div class="col l4 m4 s12">
-          <div v-for="block in leftBlocks" :key="block.id" class="card-panel">
-            <a class="fa fa-times grey-text right" @click="removeBlock(block)"></a>
-            <component :is="block.kind" :portfolioId="portfolioId" :blockId="block.id"></component>
-          </div>
-          
-          <div class="card-panel center">
-            <img src="/assets/add_portfolio.png" id="add-left-block" @click="openModalToAdd('left')" />
-          </div>
+          <draggable v-model="leftBlocks" @end="updateBlocks(leftBlocks)">
+            <div v-for="block in leftBlocks" :key="block.id" class="card-panel">
+              <a class="fa fa-times grey-text right" @click="removeBlock(block)"></a>
+              <component :is="block.kind" :portfolioId="portfolioId" :blockId="block.id"></component>
+            </div>
+          </draggable>
+            
+            <div class="card-panel center">
+              <img src="/assets/add_portfolio.png" id="add-left-block" @click="openModalToAdd('left')" />
+            </div>
         </div>
  
         <div class="col l8 m8 s12">
-          <div v-for="block in rightBlocks" :key="block.id" class="card-panel">
-            <a class="fa fa-times grey-text right" @click="removeBlock(block)"></a>
-            <component :is="block.kind" :portfolioId="portfolioId" :blockId="block.id"></component>
-          </div>
-          
-          <div class="card-panel center">
-            <img src="/assets/add_portfolio.png" id="add-right-block" @click="openModalToAdd('right')" />
-          </div>
+          <draggable v-model="rightBlocks" @end="updateBlocks(rightBlocks)">
+            <div v-for="block in rightBlocks" :key="block.id" class="card-panel">
+              <a class="fa fa-times grey-text right" @click="removeBlock(block)"></a>
+              <component :is="block.kind" :portfolioId="portfolioId" :blockId="block.id"></component>
+            </div>
+          </draggable>
+
+            <div class="card-panel center">
+              <img src="/assets/add_portfolio.png" id="add-right-block" @click="openModalToAdd('right')" />
+            </div>
         </div>
  
         <div id="add-block-modal" class="modal">
@@ -52,6 +56,7 @@
  
  
 <script>
+  import draggable from 'vuedraggable'
   import Profile from '../portfolio_resources/profile'
   import Education from '../portfolio_resources/education'
   import AdditionalInformation from '../portfolio_resources/additional_information'
@@ -66,6 +71,7 @@
  
   export default {
       components: {
+        draggable,
         Profile,
         Education,
         'additional_information': AdditionalInformation,
@@ -104,55 +110,62 @@
         }
       }
     },
- 
     watch: {
       blocks() {
+          //fills list leftblock and rightblock
         this.leftBlocks = this.blocks.filter((block) => { return block.side == "left" })
         this.rightBlocks = this.blocks.filter((block) => { return block.side == "right" })
       }
     },
- 
     created() {
-      this.portfolioId = $("#portfolio-edit").data("portfolio");
+      this.portfolioId = $("#portfolio-edit").data("portfolio"); // get id portfolio-edit
     },
- 
     mounted(){
-      let modal_element = document.getElementById("add-block-modal");
-      this.modalInstance = M.Modal.init(modal_element);
-      this.$resource('/portfolios{/portfolioId}/blocks').get({ portfolioId: this.portfolioId })
+      let modal_element = document.getElementById("add-block-modal"); //select add-block-modal
+      this.modalInstance = M.Modal.init(modal_element);// instance modal in materialize
+      this.$resource('/portfolios{/portfolioId}/blocks').get({ portfolioId: this.portfolioId })// download blocks
           .then(response => { this.blocks = response.body.blocks },
                 response => { M.toast({ html: "Error on trying to get Blocks", classes: "red" })
           })
     },
- 
     methods: {
       openModalToAdd(side) {
-        this.blockToAdd.side = side
-        this.blockKinds = this[`${side}Kinds`]
-        this.modalInstance.open();
+        this.blockToAdd.side = side //open modal and get params side
+        this.blockKinds = this[`${side}Kinds`]// put in list of kids
+        this.modalInstance.open(); //open modal
       },
- 
+     updateBlocks(blocks){
+        let blocksToUpdate = blocks.map((block, index) => { return { id: block.id, position: index } })
+        this.$http.patch(`/portfolios/${this.portfolioId}/blocks/positions`, { blocks: blocksToUpdate })
+          .then(
+            response => {},
+            response => {
+              if(response.body.old_blocks)
+                this.blocks = response.body.old_blocks
+              M.toast({ html: "Ocorreu um erro ao atualizar as posições dos blocos", classes: "red" })
+            })
+      },
       addBlock() {
+          // call api and add block
         this.$resource('/portfolios{/portfolioId}/blocks').save({ portfolioId: this.portfolioId }, { block: this.blockToAdd })
             .then(response => {
-              this.blocks.push(response.body.block)
-              this.modalInstance.close()
-              this.blockToAdd = {}
+              this.blocks.push(response.body.block)// put in list of block
+              this.modalInstance.close() //close modal
+              this.blockToAdd = {} //clean blockToAdd
             }, response => {
               response.body.errors.forEach(error => { M.toast({ html: error, classes: "red" }) })
             })
       },
- 
       removeBlock(blockToRemove){
+            // call api and pass id
         this.$resource('/portfolios{/portfolioId}/blocks{/id}').remove({ portfolioId: blockToRemove.portfolio_id, id: blockToRemove.id })
             .then(response => {
-              let indexToRemove = this.blocks.indexOf(blockToRemove)
-              this.blocks.splice(indexToRemove, 1);
+              let indexToRemove = this.blocks.indexOf(blockToRemove) //remove of list block
+              this.blocks.splice(indexToRemove, 1); //discover position in array and remove
             }, response => {
               response.body.errors.forEach(error => { M.toast({ html: error, classes: "red" }) })
             })
       }
     }
   }
- 
 </script>
