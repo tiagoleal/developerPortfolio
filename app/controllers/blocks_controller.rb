@@ -3,7 +3,7 @@ class BlocksController < ApplicationController
     before_action :load_portfolio
    
     def index
-      render json: { blocks: @portfolio.blocks }
+      render json: { blocks: @portfolio.blocks.order(:position) }
     end
    
    
