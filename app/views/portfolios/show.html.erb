@@ -1,0 +1,13 @@
+<div class="row widgets">
+  <div class="col m3 offset-m1 blocks portfolio_left s12">
+    <% blocks(position: :left).each do |block| %>
+      <%= render_block(block) %>
+    <% end %>
+  </div>
+ 
+  <div class="col m7 widget_right blocks s12">
+    <% blocks(position: :right).each do |block| %>
+      <%= render_block(block) %>
+    <% end %>
+  </div>
+</div>

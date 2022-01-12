@@ -1,4 +1,4 @@
 class About < ApplicationRecord
-  belongs_to :portofolio
+  belongs_to :portfolio
   validates :description, presence: true
 end
