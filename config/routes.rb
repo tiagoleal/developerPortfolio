@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'contact_forms/create'
   root 'pages#home'
   devise_for :users
+  resources :contact_forms, only: [:create]
  
   resources :portfolios, except: :new do
     resources :tags, only: [:create, :destroy], param: :tag_id, controller: :portfolio_tags
