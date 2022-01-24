@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  # get 'search/index'
   get 'contact_forms/create'
   root 'pages#home'
   devise_for :users
+  get :search, to: "search#index"
   resources :contact_forms, only: [:create]
  
   resources :portfolios, except: :new do
